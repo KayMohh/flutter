@@ -18,6 +18,12 @@ class _CounterPageState extends State<CounterPage> {
     });
   }
 
+  void resetCounter() {
+    setState(() {
+      counter = 0;
+    });
+  }
+
   //UI
 
   @override
@@ -37,7 +43,8 @@ class _CounterPageState extends State<CounterPage> {
 
           //button
 
-          ElevatedButton(onPressed: increamentCounter, child: Text("Increase"))
+          ElevatedButton(onPressed: increamentCounter, child: Text("Increase")),
+          ElevatedButton(onPressed: resetCounter, child: Text("Reset")),
         ]),
       ),
     );

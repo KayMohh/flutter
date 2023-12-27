@@ -24,7 +24,8 @@ class _CounterPageState extends State<CounterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Welcome"),
+        title: Text("KayMohh's Counter"),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [

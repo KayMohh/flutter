@@ -29,25 +29,28 @@ class _HomePageState extends State<HomePage> {
   // save new task
 
   saveNewTask() {
+    // Future.delayed(Durations.extralong1, () {
     setState(() {
       toDoList.add([_controller.text, false]);
+      _controller.clear();
+      // });
+      Navigator.of(context).pop();
     });
-    Navigator.of(context).pop();
   }
 
   createNewToDo() {
-    Future.delayed(Duration.zero, () {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return DialogueBox(
-            controller: _controller,
-            onSave: saveNewTask(),
-            onCancel: () {}, //Navigator.of(context).pop(),
-          );
-        },
-      );
-    });
+    // Future.delayed(Duration.zero, () {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return DialogueBox(
+          controller: _controller,
+          onSave: saveNewTask(),
+          onCancel: () => Navigator.of(context).pop(),
+        );
+      },
+    );
+    // });
   }
 
   @override
@@ -59,9 +62,9 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        onPressed: createNewToDo,
         tooltip: "Add a New To Do",
-        onPressed: createNewToDo(),
+        child: const Icon(Icons.add),
       ),
       body: ListView.builder(
         itemCount: toDoList.length,
@@ -69,7 +72,7 @@ class _HomePageState extends State<HomePage> {
           return ToDoTile(
               taskName: toDoList[index][0],
               taskComplete: toDoList[index][1],
-              onChanged: (value) => checkBoxChecked(value, index));
+              // onChanged: (value) => checkBoxChecked(value, index));
         },
 
         // ToDoTile(

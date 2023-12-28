@@ -19,7 +19,7 @@ class ToDoTile extends StatelessWidget {
           padding: EdgeInsets.all(20),
           child: Row(
             children: [
-              //checkbox
+              // checkbox
               Checkbox(
                 value: taskComplete,
                 onChanged: onChanged,

@@ -42,6 +42,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('A random  Long Fantabulous idea:'),
             BigCard(pair: pair),
@@ -82,6 +83,7 @@ class BigCard extends StatelessWidget {
         child: Text(
           pair.asLowerCase,
           style: style,
+          semanticsLabel: pair.asPascalCase,
         ),
       ),
     );
